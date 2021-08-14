@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'challenges/includes/header.css' %}">
+    <link rel="stylesheet" href="{% static 'challenges/challenge.css' %}">
+    <link rel="stylesheet" href="{% static 'challenges/challenges.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% include 'challenges/includes/header.html' with active_page="monthly_challenges" %}
+
+    <h1>This Month of {{ month|title }} Challenge</h1>
+    {% if quote is not None %}
+        <h2>{{ quote }}</h2>
+    {% else %}
+        <h2>There is no quote in this month of {{ month }}.</h2>
+    {% endif %}
+{% endblock %}
